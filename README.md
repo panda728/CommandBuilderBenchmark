@@ -30,6 +30,7 @@ ZStringのStringBuilderはさすがの速さ
 
 最後にSpan使って頑張ったわりに処理速度的には効果薄い。  
 メモリの使用効率は良い
+MemoryStream以外のライブラリあったら試したいけど調査中
 
 ##### #2 FormatBenchmark
 |        Method |     Mean |    Error |  StdDev |  Gen 0 | Gen 1 | Gen 2 | Allocated |
@@ -39,7 +40,7 @@ ZStringのStringBuilderはさすがの速さ
 
 #0 が遅い原因を調査したくてFormat対決
 ZString.Formatのほうが速そう。
-#0 で遅くなる原因は使い方の問題か？
+#0 で遅くなる原因は別の問題か？
 
 
 BenchmarkDotNet=v0.12.1, OS=Windows 10.0.18363.778 (1909/November2018Update/19H2)  
