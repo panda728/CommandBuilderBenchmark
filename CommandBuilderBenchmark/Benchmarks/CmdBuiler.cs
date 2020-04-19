@@ -38,6 +38,14 @@ namespace CommandBuilderBenchmark.Benchmarks {
         }
 
         [Benchmark]
+        public string[] LinqFormat() {
+            var result = cmdList
+                .Select(c => string.Format("{0:00000};{1},{2},{3}", c.Item1, c.Item2, c.Item3, c.Item4))
+                .ToArray();
+            return result;
+        }
+
+        [Benchmark]
         public string[] LinqZStringFormatA() {
             var result = cmdList
                 .Select(c => ZString.Format("{0:00000};{1},{2},{3}", c.Item1, c.Item2, c.Item3, c.Item4))
