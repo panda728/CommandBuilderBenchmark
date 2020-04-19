@@ -28,9 +28,8 @@ ZStringのStringBuilderはメモリ使用量も速度も優秀
 |           MemoryStream |   742.6 us | 224.6 us | 12.31 us | 680.6641 | 347.6563 | 291.9922 |   1.81 MB |
 | MemoryStreamEncodeSpan |   701.9 us | 125.8 us |  6.90 us | 375.0000 | 293.9453 | 290.0391 |   1.36 MB |
 
-最後にSpan使って頑張ったわりに処理速度的には効果薄い。  
-メモリの使用効率は良い
-MemoryStream以外の方法があったら試したいけど要調査
+最後にSpan使って頑張ったわりに処理速度的には効果薄い。メモリの使用効率は良い  
+バッファとしてMemoryStream以外の方法があったら試したいけど要調査  
 
 ##### #2 FormatBenchmark
 |        Method |     Mean |    Error |  StdDev |  Gen 0 | Gen 1 | Gen 2 | Allocated |
