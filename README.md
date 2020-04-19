@@ -5,14 +5,16 @@
   バイナリ配列を作ったら完成  
 
 ##### #0 CmdBuilder　コマンド文字列組み立て
-|              Method |     Mean |     Error |   StdDev |   Gen 0 |   Gen 1 | Gen 2 | Allocated |
-|-------------------- |---------:|----------:|---------:|--------:|--------:|------:|----------:|
-|                Linq | 477.2 us |  47.21 us |  2.59 us | 53.7109 | 26.8555 |     - | 281.37 KB |
-|        LinqParallel | 437.0 us | 127.36 us |  6.98 us | 66.4063 | 32.7148 |     - | 343.12 KB |
-|  LinqZStringFormatA | 629.9 us |  90.67 us |  4.97 us | 39.0625 | 18.5547 |     - | 203.24 KB |
-|  LinqZStringFormatB | 666.6 us | 315.01 us | 17.27 us | 44.9219 | 19.5313 |     - | 234.49 KB |
-| LinqZStringBuilderA | 421.1 us | 158.58 us |  8.69 us | 39.0625 | 19.0430 |     - | 203.24 KB |
-| LinqZStringBuilderB | 349.7 us |  44.27 us |  2.43 us | 44.9219 | 20.0195 |     - | 234.49 KB |
+|          Method |     Mean |     Error |   StdDev |    Gen 0 |   Gen 1 | Gen 2 | Allocated |
+|---------------- |---------:|----------:|---------:|---------:|--------:|------:|----------:|
+|            Linq | 491.2 us | 381.66 us | 20.92 us |  53.2227 | 26.3672 |     - | 281.37 KB |
+|    LinqParallel | 575.5 us | 574.78 us | 31.51 us |  67.3828 | 33.2031 |     - | 343.13 KB |
+|    StringFormat | 474.8 us |  69.20 us |  3.79 us |  53.2227 | 26.3672 |     - | 281.37 KB |
+|  ZStringFormatA | 620.3 us | 106.85 us |  5.86 us |  39.0625 | 18.5547 |     - | 203.24 KB |
+|  ZStringFormatB | 658.2 us |  86.96 us |  4.77 us |  44.9219 | 19.5313 |     - | 234.49 KB |
+|   StringBuilder | 541.3 us |  82.01 us |  4.50 us | 145.5078 | 60.5469 |     - | 757.93 KB |
+| ZStringBuilderA | 418.7 us |  44.84 us |  2.46 us |  40.0391 | 19.5313 |     - | 203.24 KB |
+| ZStringBuilderB | 346.6 us | 100.34 us |  5.50 us |  44.9219 | 20.0195 |     - | 234.49 KB |
 
 ##### #1 CmdConverter　文字列の配列の前後に区切り用データをつけてバイナリデータに変換
 |                 Method |       Mean |    Error |   StdDev |    Gen 0 |    Gen 1 |    Gen 2 | Allocated |
@@ -26,3 +28,6 @@
 |-------------- |---------:|---------:|--------:|-------:|------:|------:|----------:|
 |  StringFormat | 177.8 ns | 16.77 ns | 0.92 ns | 0.0608 |     - |     - |      96 B |
 | ZStringFormat | 164.1 ns | 13.11 ns | 0.72 ns | 0.0305 |     - |     - |      48 B |
+
+ZString.Formatがふるわず
+
