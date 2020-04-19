@@ -1,7 +1,7 @@
 # CommandBuilderBenchmark
 ##### 概要  
   コマンド用の文字列作る方法の検証  
-  Shift-jisでエンコードしたデータを作って、その前後に、区切り文字を入れる  
+  Shift-jisでエンコードしたデータを作って、その前後に、区切り文字を入れる    
   バイナリ配列を作ったら完成という仕様  
   .net core 3.1環境で速度比較。  
 
@@ -17,9 +17,9 @@
 | ZStringBuilderA | 418.7 us |  44.84 us |  2.46 us |  40.0391 | 19.5313 |     - | 203.24 KB |
 | ZStringBuilderB | 346.6 us | 100.34 us |  5.50 us |  44.9219 | 20.0195 |     - | 234.49 KB |
 
-負荷が軽すぎるのか並列処理では効果なし  
-ZString.Formatはメモリ使用用少ない。でも速度的に微妙
-ZStringのStringBuilderはメモリ使用量も速度も優秀
+負荷が軽すぎるのか並列処理では効果なし    
+ZString.Formatはメモリ使用用少ない。でも速度的に微妙  
+ZStringのStringBuilderはメモリ使用量も速度も優秀  
 
 ##### #1 CmdConverter　文字列の配列の前後に区切り用データをつけてバイナリデータに変換
 |                 Method |       Mean |    Error |   StdDev |    Gen 0 |    Gen 1 |    Gen 2 | Allocated |
@@ -38,9 +38,9 @@ MemoryStream以外の方法があったら試したいけど要調査
 |  StringFormat | 177.8 ns | 16.77 ns | 0.92 ns | 0.0608 |     - |     - |      96 B |
 | ZStringFormat | 164.1 ns | 13.11 ns | 0.72 ns | 0.0305 |     - |     - |      48 B |
 
-#0 が処理が重かったZString.Format
-単純なformat対決してみたらZStringが軽い
-#0 で遅くなる原因はなにか別のあるのかな
+#0 が処理が重かったZString.Format  
+単純なformat対決してみたらZStringが軽い  
+#0 で遅くなる原因はなにか別のあるのかな  
 
 
 BenchmarkDotNet=v0.12.1, OS=Windows 10.0.18363.778 (1909/November2018Update/19H2)  
