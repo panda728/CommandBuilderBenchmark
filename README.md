@@ -16,6 +16,10 @@
 | ZStringBuilderA | 418.7 us |  44.84 us |  2.46 us |  40.0391 | 19.5313 |     - | 203.24 KB |
 | ZStringBuilderB | 346.6 us | 100.34 us |  5.50 us |  44.9219 | 20.0195 |     - | 234.49 KB |
 
+負荷が軽すぎるのか並列処理では効果なし  
+ZString.Formatがふるわずstring.Formatに軍配が上がる  
+ZStringのStringBuilderはさすがの速さ
+
 ##### #1 CmdConverter　文字列の配列の前後に区切り用データをつけてバイナリデータに変換
 |                 Method |       Mean |    Error |   StdDev |    Gen 0 |    Gen 1 |    Gen 2 | Allocated |
 |----------------------- |-----------:|---------:|---------:|---------:|---------:|---------:|----------:|
@@ -23,11 +27,17 @@
 |           MemoryStream |   742.6 us | 224.6 us | 12.31 us | 680.6641 | 347.6563 | 291.9922 |   1.81 MB |
 | MemoryStreamEncodeSpan |   701.9 us | 125.8 us |  6.90 us | 375.0000 | 293.9453 | 290.0391 |   1.36 MB |
 
+最後にSpan使って頑張ったわりに処理速度的には効果薄い。  
+メモリの使用効率は良い
+
 ##### #2 FormatBenchmark
 |        Method |     Mean |    Error |  StdDev |  Gen 0 | Gen 1 | Gen 2 | Allocated |
 |-------------- |---------:|---------:|--------:|-------:|------:|------:|----------:|
 |  StringFormat | 177.8 ns | 16.77 ns | 0.92 ns | 0.0608 |     - |     - |      96 B |
 | ZStringFormat | 164.1 ns | 13.11 ns | 0.72 ns | 0.0305 |     - |     - |      48 B |
 
-ZString.Formatがふるわず
+#0 が遅い原因を調査したくてFormat対決
+ZString.Formatのほうが速そう。
+#0 で遅くなる原因は使い方の問題か？
+
 
