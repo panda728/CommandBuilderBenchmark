@@ -18,7 +18,7 @@
 | ZStringBuilderB | 346.6 us | 100.34 us |  5.50 us |  44.9219 | 20.0195 |     - | 234.49 KB |
 
 負荷が軽すぎるのか並列処理では効果なし    
-ZString.Formatはメモリ使用用少ない。でも速度的に微妙  
+ZString.Formatはメモリ使用量少ない。でも速度的に微妙  
 ZStringのStringBuilderはメモリ使用量も速度も優秀  
 
 ##### #1 CmdConverter　文字列の配列の前後に区切り用データをつけてバイナリデータに変換
