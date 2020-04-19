@@ -1,1 +1,3 @@
 # CommandBuilderBenchmark
+Shift-jisのコマンドを組み立てる方法の検討用ベンチマーク
+
