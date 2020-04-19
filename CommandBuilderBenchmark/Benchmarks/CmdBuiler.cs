@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using BenchmarkDotNet.Attributes;
 using Cysharp.Text;
 
@@ -38,7 +39,7 @@ namespace CommandBuilderBenchmark.Benchmarks {
         }
 
         [Benchmark]
-        public string[] LinqFormat() {
+        public string[] StringFormat() {
             var result = cmdList
                 .Select(c => string.Format("{0:00000};{1},{2},{3}", c.Item1, c.Item2, c.Item3, c.Item4))
                 .ToArray();
@@ -46,7 +47,7 @@ namespace CommandBuilderBenchmark.Benchmarks {
         }
 
         [Benchmark]
-        public string[] LinqZStringFormatA() {
+        public string[] ZStringFormatA() {
             var result = cmdList
                 .Select(c => ZString.Format("{0:00000};{1},{2},{3}", c.Item1, c.Item2, c.Item3, c.Item4))
                 .ToArray();
@@ -54,7 +55,7 @@ namespace CommandBuilderBenchmark.Benchmarks {
         }
 
         [Benchmark]
-        public string[] LinqZStringFormatB() {
+        public string[] ZStringFormatB() {
             var result = cmdList
                 .Select(c => ZString.Format("{0};{1},{2},{3}", c.Item1.ToString("00000"), c.Item2, c.Item3, c.Item4))
                 .ToArray();
@@ -62,7 +63,23 @@ namespace CommandBuilderBenchmark.Benchmarks {
         }
 
         [Benchmark]
-        public string[] LinqZStringBuilderA() {
+        public string[] StringBuilder() {
+            var result = cmdList
+                .Select(c => {
+                    var sb = new StringBuilder();
+                    sb.AppendFormat("{0:00000}", c.Item1);
+                    sb.Append(",");
+                    sb.Append(c.Item2);
+                    sb.Append(",");
+                    sb.Append(c.Item3);
+                    sb.Append(",");
+                    sb.Append(c.Item4);
+                    return sb.ToString();
+                }).ToArray();
+            return result;
+        }
+        [Benchmark]
+        public string[] ZStringBuilderA() {
             var result = cmdList
                 .Select(c => {
                     using var sb = ZString.CreateStringBuilder();
@@ -78,7 +95,7 @@ namespace CommandBuilderBenchmark.Benchmarks {
             return result;
         }
         [Benchmark]
-        public string[] LinqZStringBuilderB() {
+        public string[] ZStringBuilderB() {
             var result = cmdList
                 .Select(c => {
                     using var sb = ZString.CreateStringBuilder();
