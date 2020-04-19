@@ -5,7 +5,6 @@ using BenchmarkDotNet.Attributes;
 using Cysharp.Text;
 
 namespace CommandBuilderBenchmark.Benchmarks {
-    // ベンチマーク本体
     [Config(typeof(BenchmarkConfig))]
     public class CmdBuilder {
         List<(int, string, string, string)> cmdList;
