@@ -1,10 +1,8 @@
 # CommandBuilderBenchmark
--概要
-コマンド用の文字列作る
-Shift-jisでエンコードしたデータを作って、その前後に、区切り文字を入れる
-バイナリ配列を作ったら完成
-
-参考結果
+-概要  
+  コマンド用の文字列作る
+  Shift-jisでエンコードしたデータを作って、その前後に、区切り文字を入れる
+  バイナリ配列を作ったら完成
 
 #0 CmdBuilder　コマンド文字列組み立て
 |              Method |     Mean |     Error |   StdDev |   Gen 0 |   Gen 1 | Gen 2 | Allocated |
