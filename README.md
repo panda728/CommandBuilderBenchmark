@@ -3,6 +3,7 @@
   コマンド用の文字列作る  
   Shift-jisでエンコードしたデータを作って、その前後に、区切り文字を入れる  
   バイナリ配列を作ったら完成  
+  .net core 3.1環境で速度比較。  
 
 ##### #0 CmdBuilder　コマンド文字列組み立て
 |          Method |     Mean |     Error |   StdDev |    Gen 0 |   Gen 1 | Gen 2 | Allocated |
@@ -41,3 +42,8 @@ ZString.Formatのほうが速そう。
 #0 で遅くなる原因は使い方の問題か？
 
 
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.18363.778 (1909/November2018Update/19H2)  
+Intel Core i5-7200U CPU 2.50GHz (Kaby Lake), 1 CPU, 4 logical and 2 physical cores  
+.NET Core SDK=3.1.201  
+  [Host]   : .NET Core 3.1.3 (CoreCLR 4.700.20.11803, CoreFX 4.700.20.12001), X64 RyuJIT  
+  ShortRun : .NET Core 3.1.3 (CoreCLR 4.700.20.11803, CoreFX 4.700.20.12001), X64 RyuJIT  
